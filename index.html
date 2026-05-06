@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Modern video and audio downloader interface">
+  <title>MediaFetch - Video & Audio Downloader</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+
+  <main class="app-shell">
+    <div class="topbar">
+      <button type="button" id="themeToggleBtn" class="btn btn-ghost theme-toggle" aria-label="Toggle theme">
+        🌙 Dark
+      </button>
+    </div>
+
+    <header class="hero">
+      <p class="eyebrow">Fast • Simple • Modern</p>
+      <h1>Video & Audio Downloader</h1>
+      <p class="subtitle">
+        Paste a URL from YouTube, Facebook, X (Twitter), Instagram, or TikTok.
+      </p>
+    </header>
+
+    <section id="card" class="card platform-default" aria-live="polite">
+      <div class="platform-row">
+        <span id="platformBadge" class="platform-badge default">
+          <span class="platform-icon">🌐</span>
+          <span class="platform-name">Detecting platform...</span>
+        </span>
+      </div>
+
+      <form id="fetchForm" class="fetch-form" novalidate>
+        <label for="urlInput" class="sr-only">Media URL</label>
+        <div class="input-wrap">
+          <input
+            id="urlInput"
+            name="url"
+            type="url"
+            placeholder="Paste your video URL here..."
+            autocomplete="off"
+            required
+          >
+          <button type="button" id="clearBtn" class="btn btn-ghost" aria-label="Clear input">
+            Clear
+          </button>
+        </div>
+        <button type="submit" id="fetchBtn" class="btn btn-primary">
+          Fetch Download Options
+        </button>
+      </form>
+
+      <section id="loadingState" class="state loading hidden" aria-hidden="true">
+        <div class="spinner" role="status" aria-label="Loading"></div>
+        <p>Fetching available quality options...</p>
+      </section>
+
+      <section id="errorState" class="state error hidden" aria-hidden="true">
+        <p id="errorMessage">Something went wrong.</p>
+      </section>
+
+      <section id="resultState" class="state result hidden" aria-hidden="true">
+        <div class="result-header">
+          <h2 id="mediaTitle">Available Formats</h2>
+          <p id="mediaMeta" class="media-meta"></p>
+        </div>
+
+        <div class="field">
+          <label for="qualitySelect">Choose quality</label>
+          <select id="qualitySelect"></select>
+        </div>
+
+        <div class="actions-row">
+          <a id="finalDownloadBtn" class="btn btn-success disabled" href="#" target="_blank" rel="noopener noreferrer" aria-disabled="true">
+            Download Now
+          </a>
+          <button type="button" id="copyLinkBtn" class="btn btn-ghost-alt">
+            Copy Selected Link
+          </button>
+          <button type="button" id="downloadAnotherBtn" class="btn btn-ghost-alt">
+            Download Another Video
+          </button>
+        </div>
+      </section>
+    </section>
+
+    <section class="history-card">
+      <div class="history-head">
+        <h3>Recent Downloads</h3>
+        <button type="button" id="clearHistoryBtn" class="btn btn-ghost">Clear History</button>
+      </div>
+      <ul id="historyList" class="history-list">
+        <li class="history-empty">No downloads yet.</li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
