@@ -4,6 +4,9 @@
 ![yt-dlp](https://img.shields.io/badge/Powered_by-yt--dlp-red.svg?style=flat&logo=youtube)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
 
+<img width="1887" height="928" alt="Screenshot 2026-05-06 133123" src="https://github.com/user-attachments/assets/54f4e626-51b7-4bab-ab60-f852e139edfd" />
+
+
 A lightweight and powerful self-hosted PHP API to extract direct, high-quality media download links from over 1,000+ social media platforms including Instagram, Facebook, TikTok, X (Twitter), and YouTube.
 
 ---
